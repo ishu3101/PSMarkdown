@@ -28,8 +28,10 @@ Function ConvertTo-Markdown {
             $items += $item
 
             $item.PSObject.Properties | %{
-                if(-not $columns.ContainsKey($_.Name) -or $columns[$_.Name] -lt $_.Value.ToString().Length) {
-                    $columns[$_.Name] = $_.Value.ToString().Length
+                if($_.Value -ne $null){
+                    if(-not $columns.ContainsKey($_.Name) -or $columns[$_.Name] -lt $_.Value.ToString().Length) {
+                        $columns[$_.Name] = $_.Value.ToString().Length
+                    }
                 }
             }
         }
@@ -61,4 +63,3 @@ Function ConvertTo-Markdown {
         }
     }
 }
-
