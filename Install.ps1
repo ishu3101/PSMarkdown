@@ -1,6 +1,6 @@
 param([string]$InstallDirectory)
 
-$fileList = echo ConvertTo-Markdown.ps1 PSMarkdown.psm1
+$fileList = echo ConvertTo-Markdown.ps1 ConvertFrom-Markdown.ps1 PSMarkdown.psm1
 if ('' -eq $InstallDirectory)
 {
     $personalModules = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath WindowsPowerShell\Modules
