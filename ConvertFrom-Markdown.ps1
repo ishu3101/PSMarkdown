@@ -1,7 +1,7 @@
 # Convert From Markdown Table to PowerShell Object
 Function ConvertFrom-Markdown {
     [CmdletBinding()]
-    [OutputType([string])]
+    [OutputType([PSObject])]
     Param (
         [Parameter(
             Mandatory = $true,
