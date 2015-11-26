@@ -8,3 +8,13 @@ To install in your personal modules folder (e.g. ~\Documents\WindowsPowerShell\M
 ```powershell
 iex (new-object System.Net.WebClient).DownloadString('https://raw.github.com/ishu3101/PSMarkdown/master/Install.ps1')
 ```
+
+## Getting Started
+
+To start using, just import the module using
+
+```powershell
+Import-Module PSMarkdown
+```
+
+After installation, the following commands are available: `ConvertTo-Markdown, ConvertFrom-Markdown`
