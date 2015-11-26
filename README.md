@@ -19,6 +19,20 @@ Import-Module PSMarkdown
 
 After installation, the following commands are available: `ConvertTo-Markdown, ConvertFrom-Markdown`
 
+## Get Help
+
+* List of all available commands
+
+    ```powershell
+	Get-Command -Module PSMarkdown
+    ```
+
+* Help for a specific command.
+
+    ```powershell
+	Get-Help <command>
+    ```
+
 ## Commands
 
 ***For more detailed information about a command use the help***
