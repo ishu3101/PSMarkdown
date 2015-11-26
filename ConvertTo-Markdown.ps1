@@ -15,7 +15,7 @@ Function ConvertTo-Markdown {
             Position = 0,
             ValueFromPipeline = $true
         )]
-        [PSObject[]]$collection
+        [PSObject[]]$InputObject
     )
 
     Begin {
@@ -24,7 +24,7 @@ Function ConvertTo-Markdown {
     }
 
     Process {
-        ForEach($item in $collection) {
+        ForEach($item in $InputObject) {
             $items += $item
 
             $item.PSObject.Properties | %{
