@@ -18,3 +18,52 @@ Import-Module PSMarkdown
 ```
 
 After installation, the following commands are available: `ConvertTo-Markdown, ConvertFrom-Markdown`
+
+## Commands
+
+***For more detailed information about a command use the help***
+
+### ConvertTo-Markdown
+Converts a PowerShell object to a Markdown table.
+
+#### Usage
+```powershell
+ConvertTo-Markdown [-InputObject] <PSObject[]> [<CommonParameters>]
+```
+
+#### Example
+
+```powershell
+Get-Process | Where-Object {$_.mainWindowTitle} | Select-Object ID, Name, Path, Company | ConvertTo-Markdown
+```
+
+```powershell
+ConvertTo-Markdown (Get-Date)
+```
+
+```powershell
+Get-Alias | Select-Object Name, DisplayName | ConvertTo-Markdown
+```
+
+### ConvertFrom-Markdown
+Converts a Markdown table to a PowerShell object.
+
+#### Usage
+```powershell
+ConvertFrom-Markdown [-InputObject] <Object> [<CommonParameters>]
+```
+
+#### Example
+
+```powershell
+Get-Service | Select-Object Name, DisplayName, Status | ConvertTo-Markdown | ConvertFrom-Markdown
+```
+
+```powershell
+Get-Process | Unique | Select-Object Name, Path, Company | ConvertTo-Markdown | ConvertFrom-Markdown
+```
+
+```powershell
+ConvertTo-Markdown (Get-Service | Where-Object {$_.Status -eq "Running"} | Select-Object Name, DisplayName, Status) | ConvertFrom-Markdown
+```
+
