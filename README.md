@@ -1,5 +1,5 @@
 # PSMarkdown
-Powershell Module to convert a PowerShell object to a Markdown table.
+A Powershell Module that lets you convert from a PowerShell object to a Markdown table and back.
 
 ## Install
 
