@@ -23,5 +23,12 @@ if (!(Test-Path $InstallDirectory)) {
 $wc = New-Object System.Net.WebClient
 $fileList |
     ForEach-Object {
-        $wc.DownloadFile("https://raw.github.com/ishu3101/PSMarkdown/master/$_","$installDirectory\$_")
+        Try
+        {
+            $wc.DownloadFile("https://raw.github.com/ishu3101/PSMarkdown/master/$_","$installDirectory\$_")
+        }
+        catch
+        {
+            Write-Error -Message "Error Downloading $_"
+        }
     }
