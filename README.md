@@ -81,3 +81,6 @@ Get-Process | Unique | Select-Object Name, Path, Company | ConvertTo-Markdown | 
 ConvertTo-Markdown (Get-Service | Where-Object {$_.Status -eq "Running"} | Select-Object Name, DisplayName, Status) | ConvertFrom-Markdown
 ```
 
+## License
+
+PSMarkdown is released under the MIT license. See [LICENSE](LICENSE) for details.
