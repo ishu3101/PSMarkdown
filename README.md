@@ -81,6 +81,10 @@ Get-Process | Unique | Select-Object Name, Path, Company | ConvertTo-Markdown | 
 ConvertTo-Markdown (Get-Service | Where-Object {$_.Status -eq "Running"} | Select-Object Name, DisplayName, Status) | ConvertFrom-Markdown
 ```
 
+## Credit
+
+Thanks [Ben Neise](https://github.com/GuruAnt) for the initial code for [ConvertTo-Markdown](https://gist.github.com/GuruAnt/4c837213d0f313715a93) function
+
 ## License
 
 PSMarkdown is released under the MIT license. See [LICENSE](LICENSE) for details.
