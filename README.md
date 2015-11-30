@@ -1,6 +1,17 @@
 # PSMarkdown
 A Powershell Module that lets you convert from a PowerShell object to a Markdown table and back.
 
+## Table of Contents
+
+* [Install](#install)
+* [Getting Started](#getting-started)
+* [Get Help](#get-help)
+* [Commands](#commands)
+	* [ConvertTo-Markdown](#convertto-markdown)
+	* [ConvertFrom-Markdown](#convertfrom-markdown)
+* [Credit](#credit)
+* [License](#license)
+
 ## Install
 
 To install in your personal modules folder (e.g. ~\Documents\WindowsPowerShell\Modules), run:
