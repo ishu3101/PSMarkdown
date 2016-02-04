@@ -14,7 +14,13 @@ A Powershell Module that lets you convert from a PowerShell object to a Markdown
 
 ## Install
 
-To install in your personal modules folder (e.g. ~\Documents\WindowsPowerShell\Modules), run:
+There are two ways to install this module. If you are running PowerShell v5
+
+```powershell 
+Install-Module PSMarkdown
+```
+
+Otherwise, to install in your personal modules folder (e.g. ~\Documents\WindowsPowerShell\Modules), run:
 
 ```powershell
 iex (new-object System.Net.WebClient).DownloadString('https://raw.github.com/ishu3101/PSMarkdown/master/Install.ps1')
