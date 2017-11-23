@@ -15,6 +15,12 @@
    Get-Alias | Select Name, DisplayName | ConvertTo-Markdown
 
    This command displays the name and displayname of all the aliases for the current session in Markdown table format
+
+.EXAMPLE
+    PS> $sort = [ordered]@{Name=0;DisplayName=0;Options=0}
+    PS> Get-Alias | Select Name, DisplayName, Options | ConvertTo-Markdown -columnSorted $sort
+
+   This command generates the markdown table according to the specified order.
 #>
 Function ConvertTo-Markdown {
     [CmdletBinding()]
@@ -25,12 +31,33 @@ Function ConvertTo-Markdown {
             Position = 0,
             ValueFromPipeline = $true
         )]
-        [PSObject[]]$InputObject
+        [PSObject[]]$InputObject,
+        [
+            ValidateScript({
+                If($_.GetType().fullname.split(".")[-1] -eq "OrderedDictionary") 
+                {
+                    $True
+                } Else {
+                    Throw "$_ is not an ordered Dictionary!"
+                }
+            })
+        ]
+        $columnSorted
     )
 
     Begin {
         $items = @()
-        $columns = @{}
+
+        if($columnSorted -ne $null)
+        {
+            
+            $columns = $columnSorted
+
+        }
+        else {
+            $columns = @{}
+        }
+
     }
 
     Process {
@@ -39,7 +66,7 @@ Function ConvertTo-Markdown {
 
             $item.PSObject.Properties | %{
                 if($_.Value -ne $null){
-                    if(-not $columns.ContainsKey($_.Name) -or $columns[$_.Name] -lt $_.Value.ToString().Length) {
+                    if(-not $columns.Contains($_.Name) -or $columns[$_.Name] -lt $_.Value.ToString().Length) {
                         $columns[$_.Name] = $_.Value.ToString().Length
                     }
                 }
