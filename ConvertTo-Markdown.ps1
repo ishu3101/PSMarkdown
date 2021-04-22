@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
    Converts a PowerShell object to a Markdown table.
 .Description
@@ -30,7 +30,7 @@ Function ConvertTo-Markdown {
 
     Begin {
         $items = @()
-        $columns = @{}
+        $columns = [Ordered] @{}
     }
 
     Process {
@@ -39,7 +39,7 @@ Function ConvertTo-Markdown {
 
             $item.PSObject.Properties | %{
                 if($_.Value -ne $null){
-                    if(-not $columns.ContainsKey($_.Name) -or $columns[$_.Name] -lt $_.Value.ToString().Length) {
+                    if(-not $columns.Contains($_.Name) -or $columns[$_.Name] -lt $_.Value.ToString().Length) {
                         $columns[$_.Name] = $_.Value.ToString().Length
                     }
                 }
